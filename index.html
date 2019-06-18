@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 第一步：适配页面 -->
+    <script>
+
+            ~ function () {
+                function computed() {
+                    var pcWidth = document.documentElement.clientWidth
+                    var des = 750;
+                    if (pcWidth > 750) {
+                        document.documentElement.style.fontSize = "100px";
+                        return;
+                    }
+                    document.documentElement.style.fontSize = pcWidth / des * 100 + "px";
+                }
+                computed()
+    
+            }();
+    </script>
+    <!-- 重置样式表 -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- swiper插件中的swiper.min.css -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- 这个是自己要写的css -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>  
+  <!-- 第二步骤：复制swiper的结构 -->
+        <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+                <!-- 如果需要滚动条 -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+</body>
+</html>
+<!-- 第一步：连接swiper中的js -->
+<script src="js/swiper.min.js"></script>
+<script>
+  // 第三步骤：初始化swiper 插件
+ window.onload=function(){
+    var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay:true, //自动播放
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    // 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  })        
+ }
+</script>
